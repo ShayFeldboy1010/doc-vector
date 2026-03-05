@@ -2,12 +2,26 @@
 
 A Python script that extracts text from PDF/DOCX documents, splits it into chunks using configurable strategies, generates vector embeddings via Google Gemini API, and stores everything in PostgreSQL with pgvector.
 
+## How It Works
+
+```
++----------------+      +----------------+      +------------------+      +----------------+
+|                |      |                |      |                  |      |                |
+|   PDF / DOCX   +----->+  Text Chunks   +----->+  Gemini API      +----->+  PostgreSQL    |
+|   Document     |      |  (split text)  |      |  (embeddings)    |      |  (pgvector)    |
+|                |      |                |      |                  |      |                |
++----------------+      +----------------+      +------------------+      +----------------+
+
+  1. Extract text      2. Split into         3. Generate vector      4. Store chunks
+     from file            chunks                embeddings             + vectors in DB
+```
+
 ## Features
 
-- **PDF & DOCX support** — extract clean text from both formats
-- **3 chunking strategies** — fixed-size with overlap, sentence-based, paragraph-based
-- **Google Gemini embeddings** — uses `gemini-embedding-001` (3072 dimensions)
-- **PostgreSQL + pgvector** — stores chunks and vectors for semantic search
+- **PDF & DOCX support**: extract clean text from both formats
+- **3 chunking strategies**: fixed-size with overlap, sentence-based, paragraph-based
+- **Google Gemini embeddings**: uses `gemini-embedding-001` (3072 dimensions)
+- **PostgreSQL + pgvector**: stores chunks and vectors for semantic search
 
 ## Prerequisites
 
@@ -19,8 +33,8 @@ A Python script that extracts text from PDF/DOCX documents, splits it into chunk
 
 ```bash
 # Clone the repository
-git clone https://github.com/<your-username>/document-vectorization.git
-cd document-vectorization
+git clone https://github.com/ShayFeldboy1010/doc-vector.git
+cd doc-vector
 
 # Create a virtual environment
 python -m venv .venv
